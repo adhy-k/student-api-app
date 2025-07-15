@@ -1,5 +1,6 @@
 import React, { useState } from 'react'
 import Navbar from './Navbar'
+import axios from 'axios'
 
 const Addstudent = () => {
     const [input, changeInput] = useState(
@@ -16,6 +17,11 @@ const Addstudent = () => {
 
     const readInput=()=>{
         console.log(input)
+            axios.post("http://18.144.111.41/student_api.php",input).then(
+                (req)=>{
+                    alert("Student Data Added Successfully")
+                }
+            ).catch()
     }
 
     return (
